@@ -1,58 +1,63 @@
 # AWS Workshop - Spring Boot Deployment
 
-## Overview
+Hugo-based workshop documentation for deploying a Spring Boot application to AWS Elastic Beanstalk with Aurora Serverless MySQL and GitHub Actions CI/CD. The source pages live under `content/`, and the generated static site is stored in `docs/`.
 
-This workshop provides a comprehensive guide for deploying Spring Boot applications to AWS using Elastic Beanstalk and Aurora Serverless MySQL. The workshop covers the complete infrastructure setup from VPC creation to automated CI/CD pipeline configuration.
+## Project Summary
 
-## What You'll Learn
-
-- Create custom VPC with high security configurations
-- Set up Aurora Serverless MySQL database with Data API
-- Deploy Spring Boot application to Elastic Beanstalk
-- Configure automated CI/CD pipeline with GitHub Actions
-- Test application connectivity with database
-- Clean up AWS resources properly
+| Area | Implementation |
+|---|---|
+| Documentation engine | Hugo with the `hugo-theme-learn` theme |
+| Workshop scope | Spring Boot deployment to AWS Elastic Beanstalk |
+| Networking | Custom VPC and security group walkthrough |
+| Database | Aurora Serverless MySQL setup, including Data API-oriented steps |
+| Application hosting | Elastic Beanstalk deployment flow |
+| CI/CD | GitHub Actions deployment guidance |
+| Static output | Generated site in `docs/` for GitHub Pages-style hosting |
+| Configuration | Hugo site settings in `config.toml` |
+| Secrets | Real AWS and GitHub credentials must be kept outside the repository |
 
 ## Workshop Modules
 
-1. **Introduction** - Overview and prerequisites
-2. **Environment Preparation** - Install tools and configure AWS
-3. **Create Custom VPC** - Build network infrastructure
-4. **Create Security Groups** - Configure network security
-5. **Create Aurora Serverless MySQL** - Set up Aurora database
-6. **Deploy Elastic Beanstalk** - Deploy Spring Boot application
-7. **Test Application** - Verify application functionality
-8. **Configure CI/CD** - Automate deployment with GitHub Actions
-9. **Clean Up Resources** - Delete AWS resources
+1. Introduction and prerequisites
+2. Environment preparation
+3. Custom VPC setup
+4. Security group setup
+5. Aurora Serverless MySQL setup
+6. Elastic Beanstalk deployment
+7. Application testing
+8. GitHub Actions CI/CD configuration
+9. Resource cleanup
 
-## Expected Results
+## Requirements
 
-After completing this workshop, you will have:
-- A fully functional Spring Boot application running on AWS Elastic Beanstalk
-- Aurora Serverless MySQL database with Data API enabled
-- Custom VPC with high security configurations
-- Automated CI/CD pipeline using GitHub Actions
-- Query Editor for database management
+- AWS account with permissions for VPC, EC2/Elastic Beanstalk, RDS/Aurora, IAM, and related services
+- GitHub account for CI/CD practice
+- Basic Spring Boot and AWS knowledge
+- Hugo, when editing or regenerating the documentation site
 
-## Prerequisites
+## Run Locally
 
-- AWS Account with appropriate permissions
-- GitHub Account (for CI/CD pipeline)
-- Basic knowledge of Spring Boot framework
-- Basic understanding of AWS services
-- Local development environment with required tools
+```bash
+hugo server
+```
 
-## Getting Started
+The local URL is usually:
 
-1. Ensure you have an AWS account with appropriate permissions
-2. Set up your local development environment
-3. Follow the workshop modules in sequence
-4. Complete the cleanup section to avoid unnecessary charges
+```text
+http://localhost:1313
+```
 
-## Support
+## Build Static Site
 
-For questions or issues, please refer to the workshop documentation or AWS documentation for specific services.
+```bash
+hugo
+```
 
-## License
+The generated files are written to `docs/`.
 
-This workshop is provided as-is for educational purposes.
+## Security Notes
+
+- Do not commit AWS access keys, secret access keys, session tokens, private keys, `.env` files, or GitHub tokens.
+- Store CI/CD values in GitHub Actions Secrets.
+- Use local AWS profiles or AWS-managed configuration for workshop execution.
+- Run the cleanup module after testing to avoid unexpected AWS charges.
